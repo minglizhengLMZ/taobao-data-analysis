@@ -33,7 +33,7 @@ plt.rcParams['font.sans-serif']=['SimHei']
 
 
 #导入原始数据
-data=pd.read_csv(r'E:\实习\userbehavior\UserBehavior.csv',encoding='utf-8',header=None,index_col=None)
+data=pd.read_csv(r'./UserBehavior.csv',encoding='utf-8',header=None,index_col=None)
 
 #更新列名
 columns=['User_Id','Item_Id','Category_Id','Behavior_type','Timestamp']
@@ -92,8 +92,8 @@ data.reset_index(drop=True,inplace=True)
 
 userlogin=data[['User_Id','dates']]
 #数据清洗完成，导出到本地
-data.to_excel(r'E:\实习\userbehavior\UserBehavio_Done.xlsx',sheet_name='data1',startcol=0,index=False)
-data.to_csv(r'E:\实习\userbehavior\userlogin.csv',index=False)
+data.to_excel(r'./UserBehavio_Done.xlsx',sheet_name='data1',startcol=0,index=False)
+data.to_csv(r'E:./userlogin.csv',index=False)
 
 
 
@@ -213,7 +213,7 @@ funnel1.add(name='环节',  # 指定图例名称
             legend_orient='vertical',  # 指定图例显示的方向
             legend_pos='right')  # 指定图例的位置
 
-funnel1.render(r'E:/实习/userbehavior/funnel1.html') 
+funnel1.render(r'./funnel1.html') 
 
 ##2.独立访客转化漏斗
 attr3 = ['pv','cart','fav','buy']
@@ -233,7 +233,7 @@ funnel3.add(name='环节',  # 指定图例名称
             legend_orient='vertical',  # 指定图例显示的方向
             legend_pos='right')  # 指定图例的位置
 
-funnel3.render(r'E:/实习/userbehavior/funnel3.html') 
+funnel3.render(r'./funnel3.html') 
 
 
 #3.加购到购买的转化率
@@ -254,11 +254,11 @@ funnel2.add(name='环节',  # 指定图例名称
             legend_orient='vertical',  # 指定图例显示的方向
             legend_pos='right')  # 指定图例的位置
 
-funnel2.render(r'E:/实习/userbehavior/funnel2.html') 
+funnel2.render(r'./funnel2.html') 
 
 '''-----------------(四)用户行为分析--------------------------------'''
 ##1.复购情况
-df2 = pd.read_csv('E:/实习/userbehavior/用户复购情况.csv', encoding='GB2312')
+df2 = pd.read_csv('./用户复购情况.csv', encoding='GB2312')
 df2.columns
 
 x=df2['购买次数']
@@ -279,7 +279,7 @@ plt.show()
 
 '''-----------------(五)商品销售分析--------------------------------'''
 '''------------------柱状图+折线图----------------------------------'''
-df3 = pd.read_csv('E:/实习/userbehavior/商品销售分布表.csv', encoding='GB2312')
+df3 = pd.read_csv(r'./商品销售分布表.csv', encoding='GB2312')
 df3.columns
 
 x=df3['销量']
@@ -311,7 +311,7 @@ mpl.rcParams['font.sans-serif'] = ['SimHei']
 
 #1.销售量玫瑰图
 # 创建数据框
-df4=pd.read_csv(r'E:/实习/userbehavior/商品销售top20.csv', encoding='GB2312')
+df4=pd.read_csv(r'./商品销售top20.csv', encoding='GB2312')
 df4.columns 
 # 降序排序
 df4.sort_values(by='销量', ascending=False, inplace=True)
@@ -343,11 +343,11 @@ pie1.set_series_opts(label_opts=opts.LabelOpts(is_show=True, position="inside", 
                                                ),
                      )
 # 生成html文档
-pie1.render(r'E:/实习/userbehavior/商品销售top20图.html')
+pie1.render(r'./商品销售top20图.html')
 
 
 ##2.浏览top20
-df5=pd.read_csv(r'E:/实习/userbehavior/商品浏览量top20.csv', encoding='GB2312')
+df5=pd.read_csv(r'./商品浏览量top20.csv', encoding='GB2312')
 df5.columns 
 # 降序排序
 df5.sort_values(by='浏览量', ascending=False, inplace=True)
@@ -379,10 +379,10 @@ pie1.set_series_opts(label_opts=opts.LabelOpts(is_show=True, position="inside", 
                                                ),
                      )
 # 生成html文档
-pie1.render(r'E:/实习/userbehavior/商品浏览量top20图.html')
+pie1.render(r'./商品浏览量top20图.html')
 
 ##3.加购top20
-df6=pd.read_csv(r'E:/实习/userbehavior/商品加购量top20.csv', encoding='GB2312')
+df6=pd.read_csv(r'./商品加购量top20.csv', encoding='GB2312')
 df6.columns 
 # 降序排序
 df6.sort_values(by='加购量', ascending=False, inplace=True)
@@ -414,11 +414,11 @@ pie1.set_series_opts(label_opts=opts.LabelOpts(is_show=True, position="inside", 
                                                ),
                      )
 # 生成html文档
-pie1.render(r'E:/实习/userbehavior/商品加购量top20图.html')
+pie1.render(r'./商品加购量top20图.html')
 
 
 ##4.收藏top20
-df6=pd.read_csv(r'E:/实习/userbehavior/商品收藏量top20.csv', encoding='GB2312')
+df6=pd.read_csv(r'./商品收藏量top20.csv', encoding='GB2312')
 df6.columns 
 # 降序排序
 df6.sort_values(by='收藏量', ascending=False, inplace=True)
@@ -450,7 +450,7 @@ pie1.set_series_opts(label_opts=opts.LabelOpts(is_show=True, position="inside", 
                                                ),
                      )
 # 生成html文档
-pie1.render(r'E:/实习/userbehavior/商品收藏量top20图.html')
+pie1.render(r'./商品收藏量top20图.html')
 
 
 
